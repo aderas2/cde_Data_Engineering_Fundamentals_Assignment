@@ -8,6 +8,7 @@
 
 
 2. Solution Design
+
 2.1 Source Identification
 Four primary data channels serve as the inputs for the complaint: social media, Call logs, SMS info, and Web forms. In this pipeline, all incoming channels are centralized into a single ingestion checkpoint rather than managing separate batch pipelines for different data sources.
 
