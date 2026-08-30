@@ -4,7 +4,9 @@
 
 ## Answers:
 
-1. Conceptual pipeline (see image in repo)
+1. Conceptual pipeline
+
+![Pipeline](pipeline.png)
 
 
 2. Solution Design
@@ -13,7 +15,7 @@
 Four primary data channels serve as the inputs for the complaint: social media, Call logs, SMS info, and Web forms. In this pipeline, all incoming channels are centralized into a single ingestion checkpoint rather than managing separate batch pipelines for different data sources.
 
 2.2 Ingestion Strategy
-Ingestion is streaming – for Real time capture of events. Rather than handling call logs on a delayed batch schedule, all four channels feed into this continuous collection point to ensure immediate event availability and resolving any compliant in real time. The data collected in this complaint activity are of two types: 
+Ingestion is streaming â€“ for Real time capture of events. Rather than handling call logs on a delayed batch schedule, all four channels feed into this continuous collection point to ensure immediate event availability and resolving any compliant in real time. The data collected in this complaint activity are of two types: 
 * SMS, Call & SM events are unstructured.
 * Web form is structured.
 
@@ -33,7 +35,7 @@ Orchestration & Monitoring acts as a foundational backbone linked directly to th
 
 
 3. Design Choices and Rationale
-* Real-Time Ingestion: All four sources—including call logs—are routed through a single streaming capture layer to eliminate batch infrastructure overhead and unify the ingestion checkpoint.
+* Real-Time Ingestion: All four sourcesâ€”including call logsâ€”are routed through a single streaming capture layer to eliminate batch infrastructure overhead and unify the ingestion checkpoint.
 * ELT Approach Over ETL: Data is written to storage first (Data Lake and Data Warehouse) and transformed after loading. This ensures raw historical data is permanently preserved and allows the transformation logic to be re-run or modified without re-ingesting data from the sources.
 * In-Pipeline Machine Learning Activity: Help to handle call logs (voice/video) to help analysis at the serving stage
 
